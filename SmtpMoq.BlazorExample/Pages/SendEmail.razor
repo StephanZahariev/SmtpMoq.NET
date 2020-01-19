@@ -1,0 +1,83 @@
+﻿@page "/sendemail"
+
+@using SmtpMoq.Example.Blazor.Data;
+@using Microsoft.Extensions.Configuration;
+@using System.Net.Mail;
+
+@inject IConfiguration configuration;
+
+
+<h1>Send email</h1>
+
+<p>This component demonstrates sending email that will be catched by the SmtpMoq.NET.</p>
+
+@if (resultMessage == String.Empty)
+{
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Please enter your email address</h5>
+            <EditForm Model="email" OnValidSubmit="HandleSendEmail">
+                <DataAnnotationsValidator />
+
+                <div class="form-group">
+                    <label for="from">From</label>
+                    <InputText Id="from" class="form-control" @bind-Value="email.From" />
+                    <ValidationMessage For="@(() => email.From)" />
+                </div>
+
+                <div class="form-group">
+                    <label for="to">To</label>
+                    <InputText Id="to" class="form-control" @bind-Value="email.To" />
+                    <ValidationMessage For="@(() => email.To)" />
+                </div>
+
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <InputText Id="subject" class="form-control" @bind-Value="email.Subject" />
+                    <ValidationMessage For="@(() => email.Subject)" />
+                </div>
+
+                <div class="form-group">
+                    <label for="body">Body</label>
+                    <InputTextArea Id="body" class="form-control" @bind-Value="email.Body" />
+                    <ValidationMessage For="@(() => email.Body)" />
+                </div>
+
+                <button type="submit" class="btn btn-primary">Send</button>
+            </EditForm>
+        </div>
+    </div>
+}
+else
+{
+    <p>@resultMessage</p>
+    <button @onclick="OnNew">New</button>
+}
+
+@code {
+    private Email email = new Email();
+    private string resultMessage = String.Empty;
+
+    private void HandleSendEmail()
+    {
+        MailMessage message = new MailMessage(email.From, email.To, email.Subject, email.Body);
+        message.IsBodyHtml = false;
+
+        using (SmtpClient smtpClient = new SmtpClient())
+        {
+            smtpClient.Host = configuration["SmtpClient:Server"];
+            smtpClient.Port = Convert.ToInt32(configuration["SmtpClient:Port"]);
+            smtpClient.EnableSsl = false;
+
+            smtpClient.Send(message);
+        }
+
+        resultMessage = "Message sent!";
+    }
+
+    private void OnNew()
+    {
+        email = new Email();
+        resultMessage = String.Empty;
+    }
+}

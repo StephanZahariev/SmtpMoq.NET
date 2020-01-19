@@ -1,0 +1,40 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AssemblyName>SmtpMoq</AssemblyName>
+    <RootNamespace>SmtpMoq</RootNamespace>
+    <Authors>Stephan Zahariev</Authors>
+    <Company />
+    <Product>SmtpMoq.NET</Product>
+    <PackageId>SmtpMoq.NET</PackageId>
+    <Description>SmtpMoq.NET is a lightweight SMTP Server that runs within the process of your application and receives the outgoing emails. Using HTML UI or JSON API you can verify if the outgoing emails are correctly sent during development/integration testing.</Description>
+    <Copyright>Copyright (c) 2020 by Stephan Zahariev</Copyright>
+    <PackageProjectUrl>https://github.com/StephanZahariev/SmtpMoq.NET</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/StephanZahariev/SmtpMoq.NET</RepositoryUrl>
+    <PackageTags>SMTP Moq JSON API</PackageTags>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageReleaseNotes>Initial release</PackageReleaseNotes>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\EmailDetails.html" />
+    <None Remove="Resources\EmailsList.html" />
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\EmailDetails.html" />
+    <EmbeddedResource Include="Resources\EmailsList.html" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="3.1.1" />
+    <PackageReference Include="System.ServiceModel.Primitives" Version="4.7.0" />
+  </ItemGroup>
+
+</Project>
