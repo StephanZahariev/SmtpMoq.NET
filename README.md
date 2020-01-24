@@ -1,6 +1,6 @@
 # SmtpMoq.NET
 
-SmtpMoq.NET is a lightweight SMTP Server that runs within the process of your .NET Core application and receives the outgoing emails. Using HTML UI or JSON API you can verify if the emails are correctly sent during development/integration testing.
+SmtpMoq.NET is a lightweight SMTP Server that runs within the process of your .NET Core application. All the emails are not delivered but stored in the memory. Using HTML UI or JSON API you can verify if your application correctly handles the outgoing emails during development/integration testing.
 
 ## Supported SMTP commands
 The following SMTP commands are suppported:
@@ -36,7 +36,7 @@ app.UseSmtpMoq();
 ```
 
 ## Testing API that sends emails
-Bellow is a code snipped from the SmtpMoq.Example.WebApi.Test.E2E sample part of the SmtpMoq.NET package. The test checks if the user registration API properly sends an account confirmation email:
+Bellow is a code snipped from the `SmtpMoq.Example.WebApi.Test.E2E` sample part of the SmtpMoq.NET package. The test checks if the user registration API properly sends an account confirmation email:
 
 ```csharp
 [Fact]

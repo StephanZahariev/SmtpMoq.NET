@@ -8,7 +8,7 @@
     <Company />
     <Product>SmtpMoq.NET</Product>
     <PackageId>SmtpMoq.NET</PackageId>
-    <Description>SmtpMoq.NET is a lightweight SMTP Server that runs within the process of your application and receives the outgoing emails. Using HTML UI or JSON API you can verify if the outgoing emails are correctly sent during development/integration testing.</Description>
+    <Description>SmtpMoq.NET is a lightweight SMTP Server that runs within the process of your .NET Core application. All the emails are not delivered but stored in the memory. Using HTML UI or JSON API you can verify if your application correctly handles the outgoing emails during development/integration testing.</Description>
     <Copyright>Copyright (c) 2020 by Stephan Zahariev</Copyright>
     <PackageProjectUrl>https://github.com/StephanZahariev/SmtpMoq.NET</PackageProjectUrl>
     <RepositoryUrl>https://github.com/StephanZahariev/SmtpMoq.NET</RepositoryUrl>
