@@ -74,3 +74,7 @@ You can visually access the emails processed by the server by navigating to the 
 ## Reporting Bugs
 
 To file a bug or new feature, [please open a new issue](https://github.com/StephanZahariev/SmtpMoq.NET/issues).
+
+## Blog
+
+[Here](https://szahariev.blogspot.com/2020/01/introducing-smtpmoqnet.html) is the official blogpost that announces the project and the motivation. If you prefer you can comment there.
