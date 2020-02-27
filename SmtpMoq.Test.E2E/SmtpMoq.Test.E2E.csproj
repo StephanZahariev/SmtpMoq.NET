@@ -22,7 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SmtpMoq.NET\SmtpMoq.NET.csproj" />
+    <ProjectReference Include="..\SmtpMoq\SmtpMoq.csproj" />
   </ItemGroup>
 
 </Project>
