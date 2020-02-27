@@ -10,16 +10,6 @@ using Xunit;
 
 namespace SmtpMoq.Example.WebApi.Test.E2E
 {
-    public class SmtpMoqWebApiIntegrationTests : IClassFixture<WebApplicationFactory<Startup>>
-    {
-        private readonly WebApplicationFactory<Startup> _webApplicationFactory;
-
-        public SmtpMoqWebApiIntegrationTests(WebApplicationFactory<Startup> webApplicationFactory)
-        {
-            _webApplicationFactory = webApplicationFactory;
-        }
-    }
-
     public class AccountsControllerTest: IClassFixture<WebApplicationFactory<Startup>>
     {
         private readonly WebApplicationFactory<Startup> webApplicationFactory;
